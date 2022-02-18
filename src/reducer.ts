@@ -1,21 +1,21 @@
 import { StoreType } from './type'
 
 const reducer = (state: StoreType, action: any) => {
-  if(action.type === 'AddTodo') {
+  if (action.type === 'AddTodo') {
     return {
       ...state,
       todoList: [...state.todoList, action.payload]
     }
   }
 
-  if(action.type === 'RemoveTodo') {
+  if (action.type === 'RemoveTodo') {
     return {
       ...state,
       todoList: action.payload
     }
   }
 
-  if(action.type === 'ChangeNumber') {
+  if (action.type === 'ChangeNumber') {
     return {
       ...state,
       number: action.payload

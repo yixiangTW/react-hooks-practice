@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --config config/webpack.prod.js",
     "start": "webpack serve --open --config config/webpack.dev.js",
-    "eslint": "eslint --ext .js,.jsx  src"
+    "eslint": "eslint --ext .ts,.tsx  src"
   },
   "keywords": [],
   "author": "",
@@ -17,9 +17,15 @@
     "@babel/preset-react": "^7.16.7",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.6.0",
-    "eslint": "^8.9.0",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
     "eslint-plugin-react": "^7.28.0",
     "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.1",

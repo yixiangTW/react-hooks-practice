@@ -1,7 +1,7 @@
 import { StoreType } from './type'
 
 const store: StoreType = {
-	number: 0,
+  number: 0,
   todoList: []
 }
 

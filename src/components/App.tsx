@@ -1,24 +1,32 @@
-import React, { useRef, useReducer, useEffect, useContext } from 'react'
-import toast, { Toaster } from 'react-hot-toast';
+import React, { useRef, useReducer } from 'react'
+import { Toaster } from 'react-hot-toast'
 
+import TodoList from './Todo'
 
 import reducer from '../reducer'
 import store from '../store'
-import { Context, Provider } from '../provider'
+import { Provider } from '../provider'
 
 import { Todo } from '../type'
 
+export default function App () {
+  const [state, dispatch] = useReducer(reducer, store)
 
-const TodoItem = ({ todo }: { todo: Todo }) => {
-  const { state, dispatch } = useContext(Context);
+  const ref = useRef(null)
 
-  useEffect(() => {
-    toast.success(`add todo id: ${todo.id}`)
-    return () => {
-      toast.error(`todo id: ${todo.id} removed`)
+  const onAdd = () => {
+    const id = state.number
+    const content = ref.current.value
+    if (!content) {
+      return
     }
-  }, [todo])
-
+    ref.current.value = ''
+    dispatch({
+      type: 'AddTodo',
+      payload: { content, id }
+    })
+    dispatch({ type: 'ChangeNumber', payload: id + 1 })
+  }
 
   const onRemove = (id: number) => {
     dispatch({
@@ -27,46 +35,11 @@ const TodoItem = ({ todo }: { todo: Todo }) => {
     })
   }
 
-  return <div>id: {todo.id} {todo.content}
-    <button onClick={() => onRemove(todo.id)}>remove</button>
-  </div>
-}
-
-const Todo = ({ todoList }: { todoList: Todo[]}) => {
-  return (
-    <div>
-      {
-        todoList.map((item) => <TodoItem key={item.id} todo={item}/>)
-      }
-    </div>
-    
-  )
-}
-
-export default function App() {
-  const [state, dispatch] = useReducer(reducer, store)
-
-  const ref = useRef(null)
-
-  const onAdd = () => {
-    const id = state.number
-    const content = ref.current.value;
-    if(!content) {
-      return;
-    }
-    ref.current.value = '';
-    dispatch({
-      type: 'AddTodo',
-      payload: { content, id }
-    });
-    dispatch({ type: 'ChangeNumber', payload: id + 1 })
-  }
-
   return (
     <Provider store={{ state, dispatch }}>
       <button onClick={onAdd}>add</button>
       <input ref={ref}/>
-      <Todo todoList={ state.todoList }/>
+      <TodoList todoList={ state.todoList } onRemove={onRemove}/>
       <Toaster />
     </Provider>
   )
