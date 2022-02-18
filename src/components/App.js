@@ -1,4 +1,6 @@
-import React, { useRef, useReducer, useContext } from 'react'
+import React, { useRef, useReducer, useEffect, useContext } from 'react'
+import toast, { Toaster } from 'react-hot-toast';
+
 
 import reducer from '../reducer'
 import store from '../store'
@@ -7,6 +9,16 @@ import { Context, Provider } from '../provider'
 const TodoItem = ({ todo }) => {
   
   const { state, dispatch } = useContext(Context);
+
+
+  useEffect(() => {
+
+    toast.success(`add todo id: ${todo.id}`)
+    return () => {
+      toast.error(`todo id: ${todo.id} removed`)
+    }
+  }, [todo])
+
 
   const onRemove = (id) => {
     dispatch({
@@ -38,6 +50,9 @@ export default function App() {
   const onAdd = () => {
     const id = state.number
     const content = ref.current.value;
+    if(!content) {
+      return;
+    }
     ref.current.value = '';
     dispatch({type: 'AddTodo', payload: {
       content,
@@ -51,6 +66,7 @@ export default function App() {
       <button onClick={onAdd}>add</button>
       <input ref={ref}/>
       <Todo todoList={ state.todoList }/>
+      <Toaster />
     </Provider>
   )
 }
