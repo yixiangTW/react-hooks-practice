@@ -1,4 +1,6 @@
-const reducer = (state, action) => {
+import { StoreType } from './type'
+
+const reducer = (state: StoreType, action: any) => {
   if(action.type === 'AddTodo') {
     return {
       ...state,

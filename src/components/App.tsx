@@ -6,13 +6,13 @@ import reducer from '../reducer'
 import store from '../store'
 import { Context, Provider } from '../provider'
 
-const TodoItem = ({ todo }) => {
-  
+import { Todo } from '../type'
+
+
+const TodoItem = ({ todo }: { todo: Todo }) => {
   const { state, dispatch } = useContext(Context);
 
-
   useEffect(() => {
-
     toast.success(`add todo id: ${todo.id}`)
     return () => {
       toast.error(`todo id: ${todo.id} removed`)
@@ -20,10 +20,10 @@ const TodoItem = ({ todo }) => {
   }, [todo])
 
 
-  const onRemove = (id) => {
+  const onRemove = (id: number) => {
     dispatch({
       type: 'RemoveTodo',
-      payload: state.todoList.filter(item => item.id !== id)
+      payload: state.todoList.filter((item: Todo) => item.id !== id)
     })
   }
 
@@ -32,7 +32,7 @@ const TodoItem = ({ todo }) => {
   </div>
 }
 
-const Todo = ({ todoList }) => {
+const Todo = ({ todoList }: { todoList: Todo[]}) => {
   return (
     <div>
       {
@@ -45,6 +45,7 @@ const Todo = ({ todoList }) => {
 
 export default function App() {
   const [state, dispatch] = useReducer(reducer, store)
+
   const ref = useRef(null)
 
   const onAdd = () => {
@@ -54,10 +55,10 @@ export default function App() {
       return;
     }
     ref.current.value = '';
-    dispatch({type: 'AddTodo', payload: {
-      content,
-      id
-    }});
+    dispatch({
+      type: 'AddTodo',
+      payload: { content, id }
+    });
     dispatch({ type: 'ChangeNumber', payload: id + 1 })
   }
 
