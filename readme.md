@@ -24,3 +24,6 @@ npm run eslint
 ```
 npm run build
 ```
+
+
+部署在 aws 服务上 访问： http://www.ilvwebsite.com.s3-website-us-east-1.amazonaws.com/
