@@ -22,6 +22,13 @@ const reducer = (state: StoreType, action: any) => {
     }
   }
 
+  if (action.type === 'AddHistory') {
+    return {
+      ...state,
+      historyTodos: [...state.historyTodos, action.payload]
+    }
+  }
+
   return state
 }
 

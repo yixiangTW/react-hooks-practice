@@ -5,5 +5,6 @@ export type Todo = {
 
 export type StoreType = {
   number: number;
-  todoList: Todo[]
+  todoList: Todo[];
+  historyTodos: Todo[]
 }

@@ -2,6 +2,7 @@ import React, { useRef, useReducer } from 'react'
 import { Toaster } from 'react-hot-toast'
 
 import TodoList from './Todo'
+import Histotry from './History'
 
 import reducer from '../reducer'
 import store from '../store'
@@ -40,6 +41,7 @@ export default function App () {
       <button onClick={onAdd}>add</button>
       <input ref={ref}/>
       <TodoList todoList={ state.todoList } onRemove={onRemove}/>
+      <Histotry />
       <Toaster />
     </Provider>
   )
