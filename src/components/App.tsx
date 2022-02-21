@@ -38,6 +38,7 @@ export default function App () {
 
   return (
     <Provider store={{ state, dispatch }}>
+      <div>todo list</div>
       <button onClick={onAdd}>add</button>
       <input ref={ref}/>
       <TodoList todoList={ state.todoList } onRemove={onRemove}/>
