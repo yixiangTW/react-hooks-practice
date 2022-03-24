@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import History from './History'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'

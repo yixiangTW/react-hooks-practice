@@ -1,9 +1,8 @@
-import * as React from 'react'
+import React, { useContext } from 'react'
 import { Context } from '../provider'
 
 import { Todo } from '../type'
 
-const { useContext } = React
 export default function History () {
   const { state } = useContext(Context)
 

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useRef, useReducer } from 'react'
 import { Toaster } from 'react-hot-toast'
 
 import TodoList from './Todo'
@@ -9,8 +9,6 @@ import store from '../store'
 import { Provider } from '../provider'
 
 import { Todo } from '../type'
-
-const { useRef, useReducer } = React
 
 export default function App () {
   const [state, dispatch] = useReducer(reducer, store)

@@ -1,6 +1,5 @@
-import * as React from 'react'
+import React from 'react'
 import TodoItem from './TodoItem'
-
 import { Todo } from '../type'
 
 export default function TodoList ({ todoList, onRemove }: { todoList: Todo[], onRemove: any}) {
