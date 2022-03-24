@@ -1,10 +1,11 @@
-import React, { useEffect, useContext } from 'react'
+import * as React from 'react'
 import toast from 'react-hot-toast'
 
 import { Context } from '../provider'
 
 import { Todo } from '../type'
 
+const { useEffect, useContext } = React
 export default function TodoItem ({ todo, onRemove }: { todo: Todo, onRemove: any }) {
   const { dispatch } = useContext(Context)
 
@@ -20,7 +21,7 @@ export default function TodoItem ({ todo, onRemove }: { todo: Todo, onRemove: an
     }
   }, [todo])
 
-  return <div>id: {todo.id} {todo.content}
+  return <div data-testid='list-item'>id: {todo.id} {todo.content}
     <button onClick={onRemove}>remove</button>
   </div>
 }
