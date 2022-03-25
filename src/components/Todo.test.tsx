@@ -1,7 +1,6 @@
 import React from 'react'
 import TodoList from './Todo'
 import { render, screen } from '@testing-library/react'
-import '@testing-library/jest-dom'
 
 import { Todo } from '../type'
 import { Provider } from '../provider'

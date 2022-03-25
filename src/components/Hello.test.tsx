@@ -1,7 +1,6 @@
 import React from 'react'
 import Hello from './Hello'
 import { render, screen } from '@testing-library/react'
-import '@testing-library/jest-dom'
 
 test('render Hello', () => {
   const name = 'World'
