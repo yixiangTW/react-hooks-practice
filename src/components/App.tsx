@@ -9,7 +9,6 @@ import store from '../store'
 import { Provider } from '../provider'
 
 import { Todo } from '../type'
-
 import style from './App.css'
 
 export default function App () {
@@ -19,10 +18,7 @@ export default function App () {
 
   const onAdd = () => {
     const id = state.number
-    const content = ref.current.value
-    if (!content) {
-      return
-    }
+    const content = ref.current.value ? ref.current.value : 'null'
     ref.current.value = ''
     dispatch({
       type: 'AddTodo',
@@ -41,7 +37,8 @@ export default function App () {
   return (
     <Provider store={{ state, dispatch }}>
       <h1 className={style.title}>Todo</h1>
-      <button onClick={onAdd}>add</button>
+      <pre data-testid='description'>current id is { state.number }</pre>
+      <button data-testid='click' onClick={onAdd}>add</button>
       <input ref={ref}/>
       <TodoList todoList={ state.todoList } onRemove={onRemove}/>
       <Histotry />
