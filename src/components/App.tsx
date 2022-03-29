@@ -38,7 +38,7 @@ export default function App () {
     <Provider store={{ state, dispatch }}>
       <h1 className={style.title}>Todo</h1>
       <pre data-testid='description'>current id is { state.number }</pre>
-      <button data-testid='click' onClick={onAdd}>add</button>
+      <button data-testid='click' onClick={onAdd} className={style.button}>add</button>
       <input ref={ref}/>
       <TodoList todoList={ state.todoList } onRemove={onRemove}/>
       <Histotry />
