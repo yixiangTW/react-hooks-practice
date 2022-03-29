@@ -10,6 +10,8 @@ import { Provider } from '../provider'
 
 import { Todo } from '../type'
 
+import style from './App.css'
+
 export default function App () {
   const [state, dispatch] = useReducer(reducer, store)
 
@@ -38,7 +40,7 @@ export default function App () {
 
   return (
     <Provider store={{ state, dispatch }}>
-      <h1>Todo</h1>
+      <h1 className={style.title}>Todo</h1>
       <button onClick={onAdd}>add</button>
       <input ref={ref}/>
       <TodoList todoList={ state.todoList } onRemove={onRemove}/>
