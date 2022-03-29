@@ -12,6 +12,12 @@ describe('App', () => {
   })
 
   test('click button', () => {
+    render(<App />)
+    const inputElement = screen.getByRole('textbox')
+    userEvent.clear(inputElement)
+    userEvent.type(inputElement, 'Hello, World!')
+    expect(inputElement).toHaveValue('Hello, World!')
+
     // render(<App />)
     // userEvent.click(screen.getByTestId('click'))
     // expect(screen.getByTestId('description')).toHaveTextContent('current id is 1')

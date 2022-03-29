@@ -39,7 +39,7 @@ export default function App () {
       <h1 className={style.title}>Todo</h1>
       <pre data-testid='description'>current id is { state.number }</pre>
       <button data-testid='click' onClick={onAdd} className={style.button}>add</button>
-      <input ref={ref}/>
+      <input type='text' ref={ref}/>
       <TodoList todoList={ state.todoList } onRemove={onRemove}/>
       <Histotry />
       <Toaster />
