@@ -2,6 +2,10 @@
   font-size: 16px;
   color: cadetblue;
 }
+:global(.title) {
+  font-size: 16px;
+  color: coral;
+}
 .button {
   margin-right: 5px;
 }

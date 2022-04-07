@@ -36,7 +36,8 @@ export default function App () {
 
   return (
     <Provider store={{ state, dispatch }}>
-      <h1 className={style.title}>Todo</h1>
+      <h1 className='title'>Todo</h1>
+      <h3 className={style.title}>Todo list</h3>
       <pre data-testid='description'>current id is { state.number }</pre>
       <button data-testid='click' onClick={onAdd} className={style.button}>add</button>
       <input type='text' ref={ref}/>
