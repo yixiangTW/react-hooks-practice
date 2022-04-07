@@ -8,7 +8,7 @@ import userEvent from '@testing-library/user-event'
 describe('App', () => {
   test('render title', () => {
     render(<App />)
-    expect(screen.getByRole('heading')).toHaveTextContent('Todo')
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Todo')
   })
 
   test('click button', () => {
