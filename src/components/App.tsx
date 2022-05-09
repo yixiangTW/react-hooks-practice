@@ -7,8 +7,7 @@ import Histotry from './History'
 import reducer from '../reducer'
 import store from '../store'
 import { Provider } from '../provider'
-
-import { Todo } from '../type'
+import { Todo } from 'src/type'
 import style from './App.css'
 
 export default function App () {
